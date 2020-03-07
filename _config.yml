@@ -28,7 +28,7 @@ twitter_username: amazingsmash
 github_username:  amazingsmash
 
 # Build settings
-theme: minima
+theme: jekyll-theme-dinky
 plugins:
   - jekyll-feed
 
