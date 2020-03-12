@@ -1,0 +1,16 @@
+<script src="{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/TemplateData/UnityProgress.js"></script>  
+<script src="{{ site.baseurl }}/assets/unity/{{page.unity_dir}}/Build/UnityLoader.js"></script>
+<!-- <script>
+  var gameInstance = UnityLoader.instantiate("gameContainer", "Build/TerraNova_WebGL.json");  
+</script>
+<div class="webgl-content">
+  <div id="gameContainer" style="width: 960px; height: 600px"></div>
+</div> -->
+
+    <script>
+      UnityLoader.instantiate("unityContainer", "Build/TerraNova_WebGL.json");
+    </script>
+  </head>
+  <body>
+    <div id="unityContainer" style="width: 960px; height: 600px; margin: auto"></div>
+  </body>
