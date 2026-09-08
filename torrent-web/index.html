@@ -38,7 +38,10 @@
           <p class="eyebrow">ACTIVE TORRENT</p>
           <h2 id="torrentName">Loading metadata…</h2>
         </div>
-        <button id="stopButton" class="danger small">Stop</button>
+        <div class="status-actions">
+          <button id="retryButton" class="secondary small">Retry</button>
+          <button id="stopButton" class="danger small">Stop</button>
+        </div>
       </div>
 
       <div class="progress-track" aria-hidden="true">
@@ -57,6 +60,35 @@
       </div>
 
       <div id="notice" class="notice">Waiting for metadata…</div>
+
+      <section class="diagnostics">
+        <div class="diagnostics-heading">
+          <div>
+            <p class="eyebrow">DIAGNOSTICS</p>
+            <h3>Connection details</h3>
+          </div>
+          <button id="copyLogButton" class="secondary small">Copy log</button>
+        </div>
+
+        <div class="diagnostic-grid">
+          <div><span>Phase</span><strong id="phaseText">Idle</strong></div>
+          <div><span>Elapsed</span><strong id="elapsedText">0s</strong></div>
+          <div><span>Metadata</span><strong id="metadataText">Waiting</strong></div>
+          <div><span>Discovered</span><strong id="discoveredText">0</strong></div>
+          <div><span>Connected</span><strong id="connectedText">0</strong></div>
+          <div class="wide"><span>Info hash</span><code id="infoHashText">—</code></div>
+        </div>
+
+        <details open>
+          <summary>Trackers and sources</summary>
+          <div id="sourceList" class="source-list"></div>
+        </details>
+
+        <details open>
+          <summary>Event log</summary>
+          <pre id="debugLog" class="debug-log">No events yet.</pre>
+        </details>
+      </section>
 
       <div id="filesSection" class="files-section hidden">
         <h3>Files</h3>
