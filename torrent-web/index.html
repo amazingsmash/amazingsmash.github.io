@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Torrent Web</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <p class="eyebrow">CLIENT-SIDE WEBTORRENT</p>
+        <h1>Torrent Web</h1>
+        <p class="subtitle">Download WebTorrent-compatible torrents directly in your browser. No backend.</p>
+      </div>
+      <span id="runtimeBadge" class="badge">Starting…</span>
+    </header>
+
+    <section class="card input-card">
+      <label for="magnetInput">Magnet link</label>
+      <textarea id="magnetInput" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="magnet:?xt=urn:btih:…"></textarea>
+      <div class="actions">
+        <button id="addMagnetButton" class="primary">Add magnet</button>
+        <button id="demoButton" class="secondary">Load legal demo</button>
+      </div>
+      <div class="separator"><span>or</span></div>
+      <label class="file-picker" for="torrentFileInput">
+        <span>Choose a .torrent file</span>
+        <input id="torrentFileInput" type="file" accept=".torrent,application/x-bittorrent">
+      </label>
+    </section>
+
+    <section id="statusCard" class="card hidden" aria-live="polite">
+      <div class="status-heading">
+        <div>
+          <p class="eyebrow">ACTIVE TORRENT</p>
+          <h2 id="torrentName">Loading metadata…</h2>
+        </div>
+        <button id="stopButton" class="danger small">Stop</button>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+      <div class="progress-row">
+        <strong id="progressText">0%</strong>
+        <span id="amountText">0 B / 0 B</span>
+      </div>
+
+      <div class="metrics">
+        <div><span>Peers</span><strong id="peersText">0</strong></div>
+        <div><span>Down</span><strong id="downloadSpeedText">0 B/s</strong></div>
+        <div><span>Up</span><strong id="uploadSpeedText">0 B/s</strong></div>
+        <div><span>ETA</span><strong id="etaText">—</strong></div>
+      </div>
+
+      <div id="notice" class="notice">Waiting for metadata…</div>
+
+      <div id="filesSection" class="files-section hidden">
+        <h3>Files</h3>
+        <div id="filesList" class="files-list"></div>
+      </div>
+    </section>
+
+    <section class="card info-card">
+      <h2>Important</h2>
+      <p>Browser WebTorrent uses WebRTC. It can only connect directly to WebRTC/WebTorrent peers or compatible web seeds. Normal TCP/uTP BitTorrent peers are not reachable from Safari.</p>
+      <p>Your public IP can be visible to torrent peers, just like with a normal torrent client. Use only content you are authorized to download.</p>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
